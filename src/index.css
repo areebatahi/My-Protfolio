@@ -1,0 +1,13 @@
+@import "tailwindcss";
+.dark body,.dark nav {
+  background-color: #000;
+  color: #fff;
+}
+
+.dark a {
+  color: #ccc;
+}
+
+.dark a:hover {
+  color: #4f46e5;
+}
