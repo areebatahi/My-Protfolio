@@ -3,7 +3,6 @@ import {
   Ruler,
   Palette,
   FolderKanban,
-  FileText,
   Sun,
   Moon,
   Menu,
@@ -11,6 +10,7 @@ import {
 } from "lucide-react";
 import { useState, useEffect } from "react";
 
+// Theme Toggle Hook
 const useThemeToggle = () => {
   const [theme, setTheme] = useState(() => {
     if (typeof window !== "undefined") {
@@ -32,14 +32,15 @@ const useThemeToggle = () => {
   return { theme, toggleTheme };
 };
 
+// Navbar Items
 const navItems = [
   { icon: <Home />, label: "Home", href: "#home" },
-  { icon: <Ruler />, label: "Skills", href: "#skills" },
-  { icon: <Palette />, label: "Website Designs", href: "#design" },
+  { icon: <Ruler />, label: "About me", href: "#skills" },
   { icon: <FolderKanban />, label: "Projects", href: "#projects" },
-  { icon: <FileText />, label: "CV", href: "/cv.pdf", external: true },
+  { icon: <Palette />, label: "Contact", href: "#design" },
 ];
 
+// Navbar Component
 const Navbar = () => {
   const { theme, toggleTheme } = useThemeToggle();
   const [isOpen, setIsOpen] = useState(false);
@@ -48,8 +49,8 @@ const Navbar = () => {
   return (
     <>
       <header className="fixed top-0 left-0 w-full bg-[#1c1c1e] text-white shadow-md z-50">
-        <div className="mx-auto px-4 py-3 flex items-center justify-between ">
-          <div className="text-xl font-bold">Portfolio</div>
+        <div className="container mx-auto px-4 py-3 flex items-center justify-between">
+          <div className="text-xl font-bold"></div>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
@@ -58,18 +59,15 @@ const Navbar = () => {
                 <a
                   key={i}
                   href={item.href}
-                  target={item.external ? "_blank" : "_self"}
-                  rel={item.external ? "noopener noreferrer" : undefined}
-                  className="flex items-center gap-2 text-sm text-gray-200 hover:text-white transition-colors"
+                  className="flex items-center gap-2 text-sm text-gray-200 hover:text-emerald-400 transition-colors duration-300"
                 >
-                  <span className="text-sm">{item.icon}</span>
                   {item.label}
                 </a>
               ))}
             </div>
             <button
               onClick={toggleTheme}
-              className="text-gray-300 border-l border-gray-200 pl-4 hover:text-white transition-colors"
+              className="text-gray-300 border-l border-gray-200 pl-4 hover:text-emerald-400 transition-colors duration-300"
               aria-label="Toggle theme"
             >
               {theme === "dark" ? <Moon size={20} /> : <Sun size={20} />}
@@ -80,14 +78,14 @@ const Navbar = () => {
           <div className="md:hidden flex items-center gap-4">
             <button
               onClick={toggleTheme}
-              className="text-gray-300 hover:text-white transition-colors"
+              className="text-gray-300 hover:text-emerald-400 transition-colors duration-300"
               aria-label="Toggle theme"
             >
               {theme === "dark" ? <Moon size={20} /> : <Sun size={20} />}
             </button>
             <button
               onClick={toggleMenu}
-              className="text-gray-300 hover:text-white transition-colors"
+              className="text-gray-300 hover:text-emerald-400 transition-colors duration-300"
               aria-label="Toggle menu"
             >
               {isOpen ? <X size={20} /> : <Menu size={20} />}
@@ -102,10 +100,8 @@ const Navbar = () => {
               <a
                 key={i}
                 href={item.href}
-                target={item.external ? "_blank" : "_self"}
-                rel={item.external ? "noopener noreferrer" : undefined}
                 onClick={() => setIsOpen(false)}
-                className="flex items-center gap-2 py-2 border-b border-gray-700 text-sm text-gray-300 hover:text-white"
+                className="flex items-center gap-2 py-2 border-b border-gray-700 text-sm text-gray-300 hover:text-emerald-400 transition-colors duration-300"
               >
                 <span className="text-xl">{item.icon}</span>
                 {item.label}
@@ -114,7 +110,6 @@ const Navbar = () => {
           </div>
         )}
       </header>
-
     </>
   );
 };
