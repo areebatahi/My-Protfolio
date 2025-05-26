@@ -1,73 +1,95 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { motion, useAnimation } from "framer-motion";
+import { FaHtml5, FaCss3Alt, FaReact, FaJsSquare, FaFigma, FaBootstrap, FaGitAlt, FaNodeJs } from "react-icons/fa";
+import { SiTailwindcss, SiMongodb, SiRedux, SiFirebase, SiPostman, SiExpress, SiAdobeillustrator } from "react-icons/si";
+
+const skills = [
+  { name: "HTML5", icon: <FaHtml5 className="text-orange-500 w-8 h-8" /> },
+  { name: "CSS3", icon: <FaCss3Alt className="text-blue-500 w-8 h-8" /> },
+  { name: "JavaScript", icon: <FaJsSquare className="text-yellow-400 w-8 h-8" /> },
+  { name: "React", icon: <FaReact className="text-cyan-400 w-8 h-8" /> },
+  { name: "Redux", icon: <SiRedux className="text-purple-500 w-8 h-8" /> },
+  { name: "Tailwind", icon: <SiTailwindcss className="text-sky-400 w-8 h-8" /> },
+  { name: "Bootstrap", icon: <FaBootstrap className="text-purple-700 w-8 h-8" /> },
+  { name: "Node.js", icon: <FaNodeJs className="text-green-500 w-8 h-8" /> },
+  { name: "Express", icon: <SiExpress className="text-gray-300 w-8 h-8" /> },
+  { name: "MongoDB", icon: <SiMongodb className="text-green-400 w-8 h-8" /> },
+  { name: "Firebase", icon: <SiFirebase className="text-yellow-500 w-8 h-8" /> },
+  { name: "Git", icon: <FaGitAlt className="text-red-500 w-8 h-8" /> },
+  { name: "Postman", icon: <SiPostman className="text-orange-400 w-8 h-8" /> },
+  { name: "Figma", icon: <FaFigma className="text-pink-500 w-8 h-8" /> },
+  { name: "Illustrator", icon: <SiAdobeillustrator className="text-orange-600 w-8 h-8" /> },
+];
 
 const About = () => {
+  const controls = useAnimation();
+  const [paused, setPaused] = useState(false);
+
+  const handleMouseEnter = () => {
+    setPaused(true);
+    controls.stop();
+  };
+
+  const handleMouseLeave = () => {
+    setPaused(false);
+    controls.start({
+      x: ["0%", "-100%"],
+      transition: {
+        repeat: Infinity,
+        duration: 60,
+        ease: "linear",
+      },
+    });
+  };
+
+  // Start animation on mount
+  React.useEffect(() => {
+    controls.start({
+      x: ["0%", "-100%"],
+      transition: {
+        repeat: Infinity,
+        duration: 60,
+        ease: "linear",
+      },
+    });
+  }, [controls]);
+
   return (
     <section
       id="about"
-      className="min-h-screen bg-zinc-900 text-white py-20 px-4 md:px-12 lg:px-24"
+      className="bg-gradient-to-br from-zinc-900 to-zinc-800 text-white py-20 px-4 md:px-12 lg:px-24 overflow-hidden"
     >
-      <div className="container mx-auto max-w-5xl">
+      <div className="max-w-7xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-4xl font-bold mb-8 text-emerald-400"
+          className="text-4xl font-bold mb-12 text-emerald-400 text-center"
         >
-          About Me
+        Skills
         </motion.h2>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.6 }}
-          className="text-lg leading-8 text-gray-300 mb-6"
+        <div
+          className="overflow-hidden"
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
         >
-          I'm <span className="font-semibold text-white">Areeba Tahir</span>, a passionate web and modern app developer with a strong foundation in technical web development. I specialize in building responsive, interactive websites using modern tools like HTML5, CSS3, JavaScript, and React.js.
-        </motion.p>
-
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3, duration: 0.6 }}
-          className="text-lg leading-8 text-gray-300 mb-6"
-        >
-          I’ve completed professional training from Saylani Mass IT Training, and I’m also skilled in tools like MS Office, Canva, and Adobe Illustrator—blending both design and development in my work.
-        </motion.p>
-
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.4, duration: 0.6 }}
-          className="text-lg leading-8 text-gray-300 mb-8"
-        >
-          I'm currently pursuing my Intermediate in Medical from Government Girls College, Shah Faisal No. 5. I’m eager to learn, lead, and grow in the field of tech with a vision to contribute meaningfully through my skills and creativity.
-        </motion.p>
-
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 text-sm text-gray-200">
-          <div>
-            <h4 className="font-semibold text-white mb-1">Skills</h4>
-            <ul className="list-disc list-inside">
-              <li>Web Development</li>
-              <li>Canva / Graphic Design</li>
-              <li>Adobe Illustrator</li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold text-white mb-1">Tools</h4>
-            <ul className="list-disc list-inside">
-              <li>MS Office</li>
-              <li>Canva</li>
-              <li>Illustrator</li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold text-white mb-1">Languages</h4>
-            <ul className="list-disc list-inside">
-              <li>English</li>
-              <li>Urdu</li>
-            </ul>
-          </div>
+          <motion.div
+            className="flex gap-6 w-max"
+            animate={controls}
+          >
+            {[...skills, ...skills].map((skill, index) => (
+              <div
+                key={index}
+                className="flex flex-col items-center justify-center w-40 p-6 rounded-xl bg-zinc-700 shadow-lg hover:scale-105 hover:bg-zinc-600 transition-transform duration-300"
+              >
+                {skill.icon}
+                <p className="mt-3 text-base font-medium text-white text-center">
+                  {skill.name}
+                </p>
+              </div>
+            ))}
+          </motion.div>
         </div>
       </div>
     </section>

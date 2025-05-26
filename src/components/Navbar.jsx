@@ -59,7 +59,7 @@ const Navbar = () => {
                 <a
                   key={i}
                   href={item.href}
-                  className="flex items-center gap-2 text-sm text-gray-200 hover:text-emerald-400 transition-colors duration-300"
+                  className="flex items-center gap-2 text-sm text-gray-200 hover:text-emerald-400 transition-colors duration-300 hoverColor"
                 >
                   {item.label}
                 </a>
@@ -67,7 +67,7 @@ const Navbar = () => {
             </div>
             <button
               onClick={toggleTheme}
-              className="text-gray-300 border-l border-gray-200 pl-4 hover:text-emerald-400 transition-colors duration-300"
+              className="text-gray-300 border-l border-gray-200 pl-4 hover:text-emerald-400 transition-colors duration-300 hoverColor hover:cursor-pointer"
               aria-label="Toggle theme"
             >
               {theme === "dark" ? <Moon size={20} /> : <Sun size={20} />}
@@ -78,14 +78,14 @@ const Navbar = () => {
           <div className="md:hidden flex items-center gap-4">
             <button
               onClick={toggleTheme}
-              className="text-gray-300 hover:text-emerald-400 transition-colors duration-300"
+              className="text-gray-300 hover:text-emerald-400 transition-colors duration-300 hoverColor hover:cursor-pointer"
               aria-label="Toggle theme"
             >
               {theme === "dark" ? <Moon size={20} /> : <Sun size={20} />}
             </button>
             <button
               onClick={toggleMenu}
-              className="text-gray-300 hover:text-emerald-400 transition-colors duration-300"
+              className="text-gray-300 hover:text-emerald-400 transition-colors duration-300 hoverColor hover:cursor-pointer"
               aria-label="Toggle menu"
             >
               {isOpen ? <X size={20} /> : <Menu size={20} />}
@@ -101,7 +101,7 @@ const Navbar = () => {
                 key={i}
                 href={item.href}
                 onClick={() => setIsOpen(false)}
-                className="flex items-center gap-2 py-2 border-b border-gray-700 text-sm text-gray-300 hover:text-emerald-400 transition-colors duration-300"
+                className="flex items-center gap-2 py-2 border-b border-gray-700 text-sm text-gray-300 hover:text-emerald-400 transition-colors duration-300 hoverColor"
               >
                 <span className="text-xl">{item.icon}</span>
                 {item.label}
