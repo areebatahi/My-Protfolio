@@ -35,7 +35,7 @@ const useThemeToggle = () => {
 // Navbar Items
 const navItems = [
   { icon: <Home />, label: "Home", href: "#home" },
-  { icon: <Ruler />, label: "About me", href: "#skills" },
+  { icon: <Ruler />, label: "About", href: "#about" },
   { icon: <FolderKanban />, label: "Projects", href: "#projects" },
   { icon: <Palette />, label: "Contact", href: "#design" },
 ];

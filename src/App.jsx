@@ -2,7 +2,7 @@ import React from "react"
 import Navbar from "./components/Navbar"
 import Hero from "./components/Hero"
 import About from "./components/About"
-import Courses from "./components/Courses"
+import Project from "./components/Project"
 
 function App() {
 
@@ -10,8 +10,8 @@ function App() {
     <>
       <Navbar />
       <Hero />
-      <Courses />
       <About />
+      <Project />
     </>
   )
 }
