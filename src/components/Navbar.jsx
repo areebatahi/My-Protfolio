@@ -72,7 +72,7 @@ const Navbar = () => {
               {theme === "dark" ? <Moon size={20} /> : <Sun size={20} />}
             </button>
           </div>
-
+ 
           {/* Mobile Toggle */}
           <div className="md:hidden flex items-center gap-4">
             <button
