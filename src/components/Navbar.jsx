@@ -1,8 +1,8 @@
 import {
   Home,
-  Ruler,
-  Palette,
-  FolderKanban,
+  User,          // Instead of Ruler for About
+  Briefcase,     // Instead of FolderKanban for Projects
+  Mail,          // Instead of Palette for Contact
   Sun,
   Moon,
   Menu,
@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import { useState, useEffect } from "react";
 
-// Theme Toggle Hook
+// Theme Toggle Hook (same as before)
 const useThemeToggle = () => {
   const [theme, setTheme] = useState(() => {
     if (typeof window !== "undefined") {
@@ -32,15 +32,13 @@ const useThemeToggle = () => {
   return { theme, toggleTheme };
 };
 
-// Navbar Items
 const navItems = [
   { icon: <Home />, label: "Home", href: "#home" },
-  { icon: <Ruler />, label: "About", href: "#about" },
-  { icon: <FolderKanban />, label: "Projects", href: "#projects" },
-  { icon: <Palette />, label: "Contact", href: "#design" },
+  { icon: <User />, label: "About", href: "#about" },
+  { icon: <Briefcase />, label: "Projects", href: "#projects" },
+  { icon: <Mail />, label: "Contact", href: "#contact" },
 ];
 
-// Navbar Component
 const Navbar = () => {
   const { theme, toggleTheme } = useThemeToggle();
   const [isOpen, setIsOpen] = useState(false);
@@ -61,6 +59,7 @@ const Navbar = () => {
                   href={item.href}
                   className="flex items-center gap-2 text-sm text-gray-200 hover:text-emerald-400 transition-colors duration-300 hoverColor"
                 >
+                  <span className="text-lg">{item.icon}</span>
                   {item.label}
                 </a>
               ))}

@@ -1,12 +1,27 @@
 import React, { useState, useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import {
-  FaHtml5, FaCss3Alt, FaReact, FaJsSquare, FaFigma,
-  FaBootstrap, FaGitAlt, FaNodeJs, FaBriefcase
+  FaHtml5,
+  FaCss3Alt,
+  FaJsSquare,
+  FaReact,
+  FaBootstrap,
+  FaNodeJs,
+  FaGitAlt,
+  FaFigma,
+  FaBriefcase,
+  FaMicrosoft
 } from "react-icons/fa";
 import {
-  SiTailwindcss, SiMongodb, SiRedux, SiFirebase,
-  SiPostman, SiExpress, SiAdobeillustrator
+  SiRedux,
+  SiTailwindcss,
+  SiExpress,
+  SiMongodb,
+  SiFirebase,
+  SiPostman,
+  SiAdobeillustrator,
+  SiCanva,
+  SiGoogle,
 } from "react-icons/si";
 import dayjs from "dayjs";
 
@@ -20,12 +35,12 @@ const experience = [
       "Developed web and mobile applications, ensured high-performance solutions, and implemented efficient code for business needs.",
   },
   {
-    start: "2023-06-01",
-    end: "2024-01-01",
+    start: "2023-10-01",
+    end: "2024-03-01",
     title: "Techno Kids Batch 6",
     company: "Saylani Mass IT Training",
     description:
-      "Assisted in frontend development, learned responsive design, and collaborated with the team to build client websites.",
+      "Proficient in Microsoft Office Suite, Canva, Adobe Illustrator, and Google Workspace for creating professional documents, presentations, and designs",
   },
 ];
 
@@ -45,6 +60,9 @@ const skills = [
   { name: "Postman", icon: <SiPostman className="text-orange-400 w-8 h-8" /> },
   { name: "Figma", icon: <FaFigma className="text-pink-500 w-8 h-8" /> },
   { name: "Illustrator", icon: <SiAdobeillustrator className="text-orange-600 w-8 h-8" /> },
+  { name: "Microsoft Office", icon: <FaMicrosoft className="text-blue-700 w-8 h-8" /> },
+  { name: "Canva", icon: <SiCanva className="text-cyan-500 w-8 h-8" /> },
+  { name: "Google Workspace", icon: <SiGoogle className="text-red-500 w-8 h-8" /> },
 ];
 
 const About = () => {
@@ -84,15 +102,17 @@ const About = () => {
       id="about"
       className="bg-gradient-to-br from-zinc-900 to-zinc-800 text-white py-20 px-4 md:px-12 lg:px-24 overflow-hidden"
     >
-
       {/* __________________________Courses______________________________ */}
-      <h2 className="text-4xl font-bold text-center mb-16 text-emerald-400">Courses</h2>
+      <h2 className="text-4xl font-bold text-center mb-16 text-emerald-400">
+        Courses
+      </h2>
 
       <div className="relative max-w-5xl mx-auto space-y-20">
         {experience.map((item, index) => (
-          <div key={index} className="relative flex flex-col md:flex-row items-center gap-6">
-
-            {/* Animated Vertical Line */}
+          <div
+            key={index}
+            className="relative flex flex-col md:flex-row items-center gap-6"
+          >
             <div className="relative flex-shrink-0 w-full md:w-1/12 h-4 md:h-48 flex items-center justify-center">
               <div className="absolute w-full h-1 md:w-1 md:h-48 bg-gradient-to-r md:bg-gradient-to-b from-transparent via-emerald-400 to-transparent rounded-full" />
               <div className="z-10 bg-white text-emerald-400 rounded-full p-2 shadow-md">
@@ -100,8 +120,6 @@ const About = () => {
               </div>
             </div>
 
-
-            {/* Text Animation - Left to Right */}
             <motion.div
               className="w-full text-center md:text-left"
               initial={{ opacity: 0, x: -50 }}
@@ -111,17 +129,17 @@ const About = () => {
             >
               <p className="text-sm text-gray-400 mb-1">
                 {dayjs(item.start).format("MMM YYYY")} -{" "}
-                {dayjs(item.end).isValid() ? dayjs(item.end).format("MMM YYYY") : "Present"}
+                {dayjs(item.end).isValid()
+                  ? dayjs(item.end).format("MMM YYYY")
+                  : "Present"}
               </p>
               <h3 className="text-xl font-bold">{item.title}</h3>
               <p className="text-emerald-400 font-medium mb-2">{item.company}</p>
               <p className="text-gray-400 text-sm">{item.description}</p>
             </motion.div>
-
           </div>
         ))}
       </div>
-
 
       {/* __________________________Skills______________________________ */}
       <div className="max-w-7xl mx-auto mt-28">
@@ -149,7 +167,6 @@ const About = () => {
           </motion.div>
         </div>
       </div>
-
     </section>
   );
 };
