@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { FaLinkedin, FaGithub, FaTwitter, FaEnvelope } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa"; 
+import { MdPhone } from "react-icons/md";
+
 
 // Animation variants
 const container = {
@@ -62,40 +64,50 @@ const Contact = () => {
             Whether you have an idea or just want to say hi, my inbox is always open. I’ll try my best to get back to you!
           </motion.p>
 
-          {/* Social links with icon + text (no hover color change) */}
+          {/* Social links: icon unclickable, text clickable */}
           <motion.div
             className="flex flex-col gap-4 text-gray-400 mt-6"
             initial="hidden"
             whileInView="show"
             transition={{ delayChildren: 0.3, staggerChildren: 0.1 }}
           >
-            {[{
-              icon: <FaLinkedin />,
-              link: "https://linkedin.com/in/yourusername",
-              name: "LinkedIn",
-            }, {
-              icon: <FaGithub />,
-              link: "https://github.com/yourusername",
-              name: "GitHub",
-            }, {
-              icon: <FaTwitter />,
-              link: "https://twitter.com/yourusername",
-              name: "Twitter",
-            }, {
-              icon: <FaEnvelope />,
-              link: "mailto:your@email.com",
-              name: "Email",
-            }].map((item, i) => (
-              <motion.a
+            {[
+              {
+                icon: <FaLinkedin />,
+                link: "https://linkedin.com/in/yourusername",
+                name: "LinkedIn",
+              },
+              {
+                icon: <FaGithub />,
+                link: "https://github.com/areebatahi",
+                name: "https://github.com/areebatahi",
+              },
+              {
+                icon: <MdPhone />,
+                link: "tel:+923333187093",
+                name: "+92 333 3187093",
+              },
+              {
+                icon: <FaEnvelope />,
+                link: "mailto:areebatahirarain@gmail.com",
+                name: "areebatahirarain@gmail.com",
+              },
+            ].map((item, i) => (
+              <motion.div
                 key={i}
-                href={item.link}
-                target="_blank"
-                rel="noreferrer"
                 className="flex items-center gap-3 text-lg font-medium text-gray-400"
                 whileTap={{ scale: 0.95 }}
               >
-                <span className="text-2xl">{item.icon}</span> {item.name}
-              </motion.a>
+                <span className="text-2xl">{item.icon}</span>
+                <a
+                  href={item.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-emerald-400 transition-colors duration-300"
+                >
+                  {item.name}
+                </a>
+              </motion.div>
             ))}
           </motion.div>
         </motion.div>
@@ -108,7 +120,7 @@ const Contact = () => {
           initial="hidden"
           whileInView="show"
         >
-          {[ 
+          {[
             { name: "name", type: "text", placeholder: "John Doe" },
             { name: "email", type: "email", placeholder: "john@example.com" },
           ].map((field, idx) => (
