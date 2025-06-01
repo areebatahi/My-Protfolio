@@ -1,71 +1,110 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { LayoutGrid, Download } from 'lucide-react';
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { LayoutGrid, Download } from "lucide-react";
+
+const roles = [
+  "Web Developer",
+  "React Enthusiast",
+  "Node.js Developer",
+  "MongoDB Specialist",
+  "Express.js Expert",
+];
 
 const Hero = () => {
+  const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
+  const [displayText, setDisplayText] = useState("");
+  const [deleting, setDeleting] = useState(false);
+
+  useEffect(() => {
+    const currentRole = roles[currentRoleIndex];
+    let timeout;
+
+    if (!deleting && displayText.length < currentRole.length) {
+      timeout = setTimeout(() => {
+        setDisplayText(currentRole.slice(0, displayText.length + 1));
+      }, 150);
+    } else if (deleting && displayText.length > 0) {
+      timeout = setTimeout(() => {
+        setDisplayText(currentRole.slice(0, displayText.length - 1));
+      }, 100);
+    } else if (!deleting && displayText.length === currentRole.length) {
+      timeout = setTimeout(() => setDeleting(true), 1500);
+    } else if (deleting && displayText.length === 0) {
+      setDeleting(false);
+      setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
+    }
+
+    return () => clearTimeout(timeout);
+  }, [displayText, deleting]);
+
   return (
     <section
       id="home"
-      className="p-6 pt-24 pb-24 bg-gradient-to-br from-zinc-900 to-zinc-800"
-    > 
-    <div className="max-w-screen-6xl mx-auto px-8 flex flex-col items-center justify-center md:flex-row gap-12">
-
-
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-white md:w-2/3"
-        >
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-emerald-400">
-            Hi everyone!, I'm Areeba Tahir
-          </h1>
-
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className="text-lg leading-8 text-gray-300 mb-6"
+      className="px-8 md:px-16 pt-24 pb-24 bg-gradient-to-br from-zinc-900 to-zinc-800"
+    >
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
+        <div className="flex flex-col items-center justify-center md:flex-row gap-12">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-white"
           >
-            I'm <span className="font-semibold text-white">Areeba Tahir</span>, a passionate web and modern app developer with a strong foundation in technical web development. I specialize in building responsive, interactive websites using modern tools like HTML5, CSS3, JavaScript, and React.js.
-          </motion.p>
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-emerald-400 text-center md:text-left">
+              Hi, <span className="text-white">I'm Areeba Tahir</span>
+            </h1>
 
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3, duration: 0.6 }}
-            className="text-lg leading-8 text-gray-300 mb-6"
-          >
-            I’ve completed professional training from Saylani Mass IT Training, and I’m also skilled in tools like MS Office, Canva, and Adobe Illustrator—blending both design and development in my work.
-          </motion.p>
+            <span className="font-semibold text-emerald-400">
+              {displayText}
+              <span className="blinking-cursor">|</span>
+            </span>
 
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-            className="text-lg leading-8 text-gray-300 mb-8"
-          >
-            I’m eager to learn, lead, and grow in the field of tech with a vision to contribute meaningfully through my skills and creativity.
-          </motion.p>
-
-          <div className="flex flex-wrap gap-4">
-            <a
-              href="#projects"
-              className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-zinc-900 border border-emerald-500 text-white font-semibold py-3 px-6 rounded-lg transition duration-300"
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              className="text-lg leading-8 text-gray-300 mb-6 text-center md:text-left"
             >
-              <LayoutGrid className="w-5 h-5" />
-              View Projects
-            </a>
-            <a
-              href="#resume"
-              className="inline-flex items-center gap-2 border border-emerald-500 text-emerald-500 hover:bg-emerald-500 hover:text-white font-semibold py-3 px-6 rounded-lg transition duration-300"
-            >
-              <Download className="w-5 h-5" />
-              Resume
-            </a>
-          </div>
-        </motion.div>
+              Using modern tools like React, Node.js, MongoDB, and Express, I
+              develop high-performance web applications that run smoothly and
+              quickly. <br />
+            </motion.p>
+
+            <div className="flex flex-wrap justify-center md:justify-start gap-4">
+              <a
+                href="#projects"
+                className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-zinc-900 border border-emerald-500 text-white font-semibold py-3 px-6 rounded-lg transition duration-300"
+              >
+                <LayoutGrid className="w-5 h-5" />
+                View Projects
+              </a>
+              <a
+                href="#resume"
+                className="inline-flex items-center gap-2 border border-emerald-500 text-emerald-500 hover:bg-emerald-500 hover:text-white font-semibold py-3 px-6 rounded-lg transition duration-300"
+              >
+                <Download className="w-5 h-5" />
+                Resume
+              </a>
+            </div>
+          </motion.div>
+        </div>
       </div>
+
+      <style>{`
+        .blinking-cursor {
+          animation: blink 1.2s steps(2, start) infinite;
+          font-weight: 800;
+          font-size: 1.2rem;
+          color: #22c55e;
+          vertical-align: bottom;
+          margin-left: 2px;
+        }
+        @keyframes blink {
+          to {
+            visibility: hidden;
+          }
+        }
+      `}</style>
     </section>
   );
 };

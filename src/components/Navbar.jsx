@@ -1,12 +1,13 @@
 import {
   Home,
-  User,          // Instead of Ruler for About
-  Briefcase,     // Instead of FolderKanban for Projects
-  Mail,          // Instead of Palette for Contact
+  User,         
+  Briefcase,     
+  Mail,          
   Sun,
   Moon,
   Menu,
   X,
+  Code
 } from "lucide-react";
 import { useState, useEffect } from "react";
 
@@ -35,6 +36,7 @@ const useThemeToggle = () => {
 const navItems = [
   { icon: <Home />, label: "Home", href: "#home" },
   { icon: <User />, label: "About", href: "#about" },
+  { icon: <Code />, label: "Skills", href: "#skills" },
   { icon: <Briefcase />, label: "Projects", href: "#projects" },
   { icon: <Mail />, label: "Contact", href: "#contact" },
 ];

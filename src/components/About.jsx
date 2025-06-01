@@ -1,30 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
-import {
-  FaHtml5,
-  FaCss3Alt,
-  FaJsSquare,
-  FaReact,
-  FaBootstrap,
-  FaNodeJs,
-  FaGitAlt,
-  FaFigma,
-  FaBriefcase,
-  FaMicrosoft
-} from "react-icons/fa";
-import {
-  SiRedux,
-  SiTailwindcss,
-  SiExpress,
-  SiMongodb,
-  SiFirebase,
-  SiPostman,
-  SiAdobeillustrator,
-  SiCanva,
-  SiGoogle,
-} from "react-icons/si";
+import { FaBriefcase } from "react-icons/fa";
 import dayjs from "dayjs";
 
+// ------------------ Experience Timeline ------------------
 const experience = [
   {
     start: "2023-12-19",
@@ -44,27 +23,6 @@ const experience = [
   },
 ];
 
-const skills = [
-  { name: "HTML5", icon: <FaHtml5 className="text-orange-500 w-8 h-8" /> },
-  { name: "CSS3", icon: <FaCss3Alt className="text-blue-500 w-8 h-8" /> },
-  { name: "JavaScript", icon: <FaJsSquare className="text-yellow-400 w-8 h-8" /> },
-  { name: "React", icon: <FaReact className="text-cyan-400 w-8 h-8" /> },
-  { name: "Redux", icon: <SiRedux className="text-purple-500 w-8 h-8" /> },
-  { name: "Tailwind", icon: <SiTailwindcss className="text-sky-400 w-8 h-8" /> },
-  { name: "Bootstrap", icon: <FaBootstrap className="text-purple-700 w-8 h-8" /> },
-  { name: "Node.js", icon: <FaNodeJs className="text-green-500 w-8 h-8" /> },
-  { name: "Express", icon: <SiExpress className="text-gray-300 w-8 h-8" /> },
-  { name: "MongoDB", icon: <SiMongodb className="text-green-400 w-8 h-8" /> },
-  { name: "Firebase", icon: <SiFirebase className="text-yellow-500 w-8 h-8" /> },
-  { name: "Git", icon: <FaGitAlt className="text-red-500 w-8 h-8" /> },
-  { name: "Postman", icon: <SiPostman className="text-orange-400 w-8 h-8" /> },
-  { name: "Figma", icon: <FaFigma className="text-pink-500 w-8 h-8" /> },
-  { name: "Illustrator", icon: <SiAdobeillustrator className="text-orange-600 w-8 h-8" /> },
-  { name: "Microsoft Office", icon: <FaMicrosoft className="text-blue-700 w-8 h-8" /> },
-  { name: "Canva", icon: <SiCanva className="text-cyan-500 w-8 h-8" /> },
-  { name: "Google Workspace", icon: <SiGoogle className="text-red-500 w-8 h-8" /> },
-];
-
 const About = () => {
   const controls = useAnimation();
   const [paused, setPaused] = useState(false);
@@ -78,93 +36,98 @@ const About = () => {
     setPaused(false);
     controls.start({
       x: ["0%", "-100%"],
-      transition: {
-        repeat: Infinity,
-        duration: 60,
-        ease: "linear",
-      },
+      transition: { repeat: Infinity, duration: 60, ease: "linear" },
     });
   };
 
   useEffect(() => {
     controls.start({
       x: ["0%", "-100%"],
-      transition: {
-        repeat: Infinity,
-        duration: 60,
-        ease: "linear",
-      },
+      transition: { repeat: Infinity, duration: 60, ease: "linear" },
     });
   }, [controls]);
 
   return (
     <section
       id="about"
-      className="bg-gradient-to-br from-zinc-900 to-zinc-800 text-white py-20 px-4 md:px-12 lg:px-24 overflow-hidden"
+      className="p-6 pt-24 pb-24 bg-gradient-to-br from-zinc-900 to-zinc-800 text-white overflow-hidden"
     >
-      {/* __________________________Courses______________________________ */}
-      <h2 className="text-4xl font-bold text-center mb-16 text-emerald-400">
-        Courses
-      </h2>
+      <div className="max-w-7xl mx-auto">
+        {/* ------------------ About Text ------------------ */}
+        <h2 className="text-4xl font-bold text-center mb-16 text-emerald-400">
+          About
+        </h2>
 
-      <div className="relative max-w-5xl mx-auto space-y-20">
-        {experience.map((item, index) => (
-          <div
-            key={index}
-            className="relative flex flex-col md:flex-row items-center gap-6"
-          >
-            <div className="relative flex-shrink-0 w-full md:w-1/12 h-4 md:h-48 flex items-center justify-center">
-              <div className="absolute w-full h-1 md:w-1 md:h-48 bg-gradient-to-r md:bg-gradient-to-b from-transparent via-emerald-400 to-transparent rounded-full" />
-              <div className="z-10 bg-white text-emerald-400 rounded-full p-2 shadow-md">
-                <FaBriefcase size={16} />
-              </div>
-            </div>
-
-            <motion.div
-              className="w-full text-center md:text-left"
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-            >
-              <p className="text-sm text-gray-400 mb-1">
-                {dayjs(item.start).format("MMM YYYY")} -{" "}
-                {dayjs(item.end).isValid()
-                  ? dayjs(item.end).format("MMM YYYY")
-                  : "Present"}
-              </p>
-              <h3 className="text-xl font-bold">{item.title}</h3>
-              <p className="text-emerald-400 font-medium mb-2">{item.company}</p>
-              <p className="text-gray-400 text-sm">{item.description}</p>
-            </motion.div>
-          </div>
-        ))}
-      </div>
-
-      {/* __________________________Skills______________________________ */}
-      <div className="max-w-7xl mx-auto mt-28">
-        <div
-          className="overflow-hidden"
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2, duration: 0.6 }}
+          className="text-lg leading-8 text-gray-300 mb-6"
         >
-          <motion.div className="flex gap-6 w-max" animate={controls}>
-            {[...skills, ...skills].map((skill, index) => (
+          I'm{" "}
+          <span className="font-semibold text-emerald-400">Areeba Tahir</span>
+          , a passionate web and modern app developer with a strong foundation
+          in technical web development. I specialize in building responsive,
+          interactive websites using modern tools like HTML5, CSS3,
+          JavaScript, and React.js.
+        </motion.p>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+          className="text-lg leading-8 text-gray-300 mb-6"
+        >
+          I’ve completed professional training from Saylani Mass IT Training,
+          and I’m also skilled in tools like MS Office, Canva, and Adobe
+          Illustrator—blending both design and development in my work.
+        </motion.p>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.4, duration: 0.6 }}
+          className="text-lg leading-8 text-gray-300 mb-16"
+        >
+          I’m eager to learn, lead, and grow in the field of tech with a vision
+          to contribute meaningfully through my skills and creativity.
+        </motion.p>
+
+        {/* ------------------ Timeline ------------------ */}
+        <div className="space-y-20">
+          {experience.map((item, index) => (
+            <div
+              key={index}
+              className="relative flex flex-col md:flex-row items-center gap-6"
+            >
+              <div className="relative flex-shrink-0 w-full md:w-1/12 h-4 md:h-48 flex items-center justify-center">
+                <div className="absolute w-full h-1 md:w-1 md:h-48 bg-gradient-to-r md:bg-gradient-to-b from-transparent via-emerald-400 to-transparent rounded-full" />
+                <div className="z-10 bg-white text-emerald-400 rounded-full p-2 shadow-md">
+                  <FaBriefcase size={16} />
+                </div>
+              </div>
+
               <motion.div
-                key={index}
-                className="flex flex-col items-center justify-center w-40 p-6 rounded-xl bg-zinc-700 shadow-lg hover:scale-105 hover:bg-zinc-600 transition-transform duration-300"
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                className="w-full text-center md:text-left"
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
               >
-                {skill.icon}
-                <p className="mt-3 text-base font-medium text-white text-center">
-                  {skill.name}
+                <p className="text-sm text-gray-400 mb-1">
+                  {dayjs(item.start).format("MMM YYYY")} -{" "}
+                  {dayjs(item.end).isValid()
+                    ? dayjs(item.end).format("MMM YYYY")
+                    : "Present"}
                 </p>
+                <h3 className="text-xl font-bold">{item.title}</h3>
+                <p className="text-emerald-400 font-medium mb-2">
+                  {item.company}
+                </p>
+                <p className="text-gray-400 text-sm">{item.description}</p>
               </motion.div>
-            ))}
-          </motion.div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
