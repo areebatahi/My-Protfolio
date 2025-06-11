@@ -8,29 +8,37 @@ const container = {
 
 const cardVariants = {
   hidden: { opacity: 0, scale: 0.95, y: 30 },
-  show: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
+  show: {
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    transition: { duration: 0.4, ease: "easeOut" },
+  },
 };
 
 const projects = [
   {
-    title: "Zara Fashion",
-    description: "Full-featured MERN e-commerce app with user auth, cart, admin panel, and payment integration.",
-    image: "/images/zara-fashion.png",
-    tech: ["React", "Node.js", "MongoDB", "Tailwind"],
-    live: "https://zara-fashion.vercel.app",
-    github: "https://github.com/your-username/zara-fashion",
+    title: "Elite Shop Framework",
+    description:
+      "This website features a sleek, modern design with intuitive navigation and a fully responsive layout, ideal for delivering polished and professional business presentations.",
+    image: "src/assets/images/websiteDesign.PNG",
+    tech: ["Html5", "Css3","Bootstrap", "Javascript", "Framework", "Responsive-design"],
+    live: "https://website-design-three-sigma.vercel.app",
+    github: "https://github.com/areebatahi/website-design.git",
   },
   {
-    title: "Task Tracker",
-    description: "Trello-inspired app with task management, status updates, and drag-and-drop.",
+    title: "Task Management",
+    description:
+      "This is a full-featured task management app with user authentication, task creation, status tracking, and organized task categories for efficient workflow management.",
     image: "/images/task-tracker.png",
-    tech: ["React", "Express", "MongoDB", "Framer Motion"],
-    live: "https://task-tracker.vercel.app",
-    github: "https://github.com/your-username/task-tracker",
+    tech: ["React", "Tailwind", "Responsive-design", "Express", "MongoDB", "Nodejs"],
+    live: "https://final-smit-hackathon-ks94.vercel.app",
+    github: "https://github.com/areebatahi/Final-SMIT-Hackathon",
   },
   {
     title: "Employee Dashboard",
-    description: "Check-in/out system, leave tracker, salary display, and user profile using MERN.",
+    description:
+      "Check-                       in/out system, leave tracker, salary display, and user profile using MERN.",
     image: "/images/employee-dashboard.png",
     tech: ["React", "Node.js", "MongoDB", "Tailwind"],
     live: "https://employee-dashboard.vercel.app",
@@ -40,7 +48,10 @@ const projects = [
 
 const Project = () => {
   return (
-    <section id="projects" className="py-20 px-4 md:px-12 lg:px-24 bg-zinc-900 text-white">
+    <section
+      id="projects"
+      className="py-20 px-4 md:px-12 lg:px-24 bg-zinc-900 text-white"
+    >
       <motion.h2
         className="text-4xl font-bold text-center text-emerald-400 mb-16"
         initial={{ opacity: 0, y: 30 }}
@@ -57,7 +68,8 @@ const Project = () => {
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
       >
-        Here are some of my recent projects. Each one was built to solve specific problems and deliver exceptional user experiences.
+        Here are some of my recent projects. Each one was built to solve
+        specific problems and deliver exceptional user experiences.
       </motion.div>
       <motion.div
         className="grid gap-12 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto"
