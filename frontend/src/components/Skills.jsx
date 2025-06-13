@@ -33,7 +33,7 @@ const Skills = () => {
     { name: "Tailwind CSS", level: 90, color: "from-sky-400 to-blue-500", icon: <SiTailwindcss className="text-sky-400 w-6 h-6" /> },
     { name: "Bootstrap", level: 85, color: "from-purple-700 to-purple-900", icon: <FaBootstrap className="text-purple-700 w-6 h-6" /> },
     { name: "Node.js", level: 85, color: "from-green-400 to-green-600", icon: <FaNodeJs className="text-green-500 w-6 h-6" /> },
-    { name: "Express", level: 85, color: "from-gray-600 to-gray-700", icon: <SiExpress className="text-gray-300 w-6 h-6" /> },
+    { name: "Express", level: 85, color: "from-blue-600 to-blue-700", icon: <SiExpress className="text-gray-300 w-6 h-6" /> },
     { name: "MongoDB", level: 80, color: "from-green-400 to-green-500", icon: <SiMongodb className="text-green-400 w-6 h-6" /> },
     { name: "Firebase", level: 75, color: "from-yellow-400 to-orange-500", icon: <SiFirebase className="text-yellow-500 w-6 h-6" /> },
     { name: "Git", level: 85, color: "from-orange-500 to-red-500", icon: <FaGitAlt className="text-red-500 w-6 h-6" /> },

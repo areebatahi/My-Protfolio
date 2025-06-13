@@ -3,35 +3,11 @@ import {
   User,         
   Briefcase,     
   Mail,          
-  Sun,
-  Moon,
   Menu,
   X,
   Code
 } from "lucide-react";
-import { useState, useEffect } from "react";
-
-// Theme Toggle Hook (same as before)
-const useThemeToggle = () => {
-  const [theme, setTheme] = useState(() => {
-    if (typeof window !== "undefined") {
-      return localStorage.getItem("theme") || "dark";
-    }
-    return "dark";
-  });
-
-  useEffect(() => {
-    document.documentElement.classList.remove("dark", "light");
-    document.documentElement.classList.add(theme);
-    localStorage.setItem("theme", theme);
-  }, [theme]);
-
-  const toggleTheme = () => {
-    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
-  };
-
-  return { theme, toggleTheme };
-};
+import { useState } from "react";
 
 const navItems = [
   { icon: <Home />, label: "Home", href: "#home" },
@@ -42,7 +18,6 @@ const navItems = [
 ];
 
 const Navbar = () => {
-  const { theme, toggleTheme } = useThemeToggle();
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -66,24 +41,10 @@ const Navbar = () => {
                 </a>
               ))}
             </div>
-            <button
-              onClick={toggleTheme}
-              className="text-gray-300 border-l border-gray-200 pl-4 hover:text-emerald-400 transition-colors duration-300 hoverColor hover:cursor-pointer"
-              aria-label="Toggle theme"
-            >
-              {theme === "dark" ? <Moon size={20} /> : <Sun size={20} />}
-            </button>
           </div>
- 
+
           {/* Mobile Toggle */}
-          <div className="md:hidden flex items-center gap-4">
-            <button
-              onClick={toggleTheme}
-              className="text-gray-300 hover:text-emerald-400 transition-colors duration-300 hoverColor hover:cursor-pointer"
-              aria-label="Toggle theme"
-            >
-              {theme === "dark" ? <Moon size={20} /> : <Sun size={20} />}
-            </button>
+          <div className="md:hidden flex items-center">
             <button
               onClick={toggleMenu}
               className="text-gray-300 hover:text-emerald-400 transition-colors duration-300 hoverColor hover:cursor-pointer"
