@@ -22,27 +22,57 @@ const projects = [
     description:
       "This website features a sleek, modern design with intuitive navigation and a fully responsive layout, ideal for delivering polished and professional business presentations.",
     image: "src/assets/images/websiteDesign.PNG",
-    tech: ["Html5", "Css3","Bootstrap", "Javascript", "Framework", "Responsive-design"],
+    tech: [
+      "Html5",
+      "Css3",
+      "Bootstrap",
+      "Javascript",
+      "Framer Motion",
+      "Responsive Web Design",
+      "UI/UX Design",
+      "Landing Page Design",
+      "Shop UI Kit"
+    ],
     live: "https://website-design-three-sigma.vercel.app",
     github: "https://github.com/areebatahi/website-design.git",
+  },
+  {
+    title: "Weather App",
+    description:
+      "A stylish React.js weather app with live API integration, dynamic backgrounds based on weather conditions, and an interactive, animated UI using Framer Motion and SweetAlert..",
+    image: "src/assets/images/Weather app.PNG",
+    tech: [
+      "React.js",
+      "JavaScript (ES6+)",
+      "Axios",
+      "Framer Motion",
+      "Tailwind CSS",
+      "SweetAlert2",
+      "OpenWeatherMap API",
+      "Unsplash API",
+    ],
+    live: "https://weather-app-vert-seven-68.vercel.app/",
+    github: "https://github.com/areebatahi/weather-app",
   },
   {
     title: "Task Management",
     description:
       "This is a full-featured task management app with user authentication, task creation, status tracking, and organized task categories for efficient workflow management.",
-    image: "/images/task-tracker.png",
-    tech: ["React", "Tailwind", "Responsive-design", "Express", "MongoDB", "Nodejs"],
+    image: "src/assets/images/Task Manager.PNG",
+    tech: [
+      "React.js",
+      "Tailwind CSS",
+      "Redux ",
+      "Express",
+      "MongoDB",
+      "Nodejs",
+      "REST API",
+      "JWT Authentication",
+      "Full-Stack Development",
+      "MERN Stack",
+    ],
     live: "https://final-smit-hackathon-ks94.vercel.app",
     github: "https://github.com/areebatahi/Final-SMIT-Hackathon",
-  },
-  {
-    title: "Employee Dashboard",
-    description:
-      "Check-                       in/out system, leave tracker, salary display, and user profile using MERN.",
-    image: "/images/employee-dashboard.png",
-    tech: ["React", "Node.js", "MongoDB", "Tailwind"],
-    live: "https://employee-dashboard.vercel.app",
-    github: "https://github.com/your-username/employee-dashboard",
   },
 ];
 
@@ -81,17 +111,23 @@ const Project = () => {
         {projects.map((project, index) => (
           <motion.div
             key={index}
-            className="bg-zinc-800 rounded-xl shadow-md hover:shadow-lg overflow-hidden transition-all duration-300"
+            className="bg-zinc-800 rounded-xl shadow-md hover:shadow-lg overflow-hidden transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 cursor-pointer"
             variants={cardVariants}
           >
-            <img
-              src={project.image}
-              alt={project.title}
-              className="w-full h-48 object-cover"
-            />
+            {/* Image wrapped in link */}
+            <a href={project.live} target="_blank" rel="noopener noreferrer">
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-48 object-cover"
+              />
+            </a>
+
+            {/* Card Content */}
             <div className="p-6 space-y-4">
               <h3 className="text-xl font-bold text-white">{project.title}</h3>
               <p className="text-gray-400 text-sm">{project.description}</p>
+
               <div className="flex flex-wrap gap-2">
                 {project.tech.map((t, i) => (
                   <span
@@ -102,6 +138,7 @@ const Project = () => {
                   </span>
                 ))}
               </div>
+
               <div className="flex gap-4 mt-4">
                 <a
                   href={project.live}
@@ -124,7 +161,6 @@ const Project = () => {
           </motion.div>
         ))}
       </motion.div>
-
       <motion.div
         className="text-center mt-12"
         initial={{ opacity: 0, y: 20 }}
@@ -136,9 +172,13 @@ const Project = () => {
           href="https://github.com/your-username"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-emerald-400 hover:underline inline-flex items-center gap-2"
         >
-          See more <FaExternalLinkAlt size={14} />
+          <motion.span
+            whileHover={{ scale: 1.05 }}
+            className="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 transition-colors duration-300 cursor-pointer"
+          >
+            See more <FaExternalLinkAlt size={14} />
+          </motion.span>
         </a>
       </motion.div>
     </section>
