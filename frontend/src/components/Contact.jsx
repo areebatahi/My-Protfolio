@@ -57,7 +57,7 @@ const Contact = () => {
                 <p className="text-sm font-semibold">Email</p>
                 <a
                   href="mailto:areebatahirarain7@gmail.com"
-                  className="text-emerald-400 hover:text-emerald-300 underline cursor-pointer transition-colors duration-300"
+                  className="text-white hover:text-emerald-400 underline cursor-pointer transition-colors duration-300"
                 >
                   areebatahirarain7@gmail.com
                 </a>
@@ -73,7 +73,7 @@ const Contact = () => {
                   href="https://www.linkedin.com/in/areeba-tahir-arain-10a86936a/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-emerald-400 hover:text-emerald-300 underline cursor-pointer transition-colors duration-300"
+                  className="text-white hover:text-emerald-400 underline cursor-pointer transition-colors duration-300"
                 >
                   www.linkedin.com/in/areeba-tahir-arain-10a86936a
                 </a>
@@ -89,7 +89,7 @@ const Contact = () => {
                   href="https://github.com/areebatahi"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-emerald-400 hover:text-emerald-300 underline cursor-pointer transition-colors duration-300"
+                  className="text-white hover:text-emerald-400 underline cursor-pointer transition-colors duration-300"
                 >
                   github.com/areebatahi
                 </a>
@@ -103,7 +103,7 @@ const Contact = () => {
                 <p className="text-sm font-semibold">Phone</p>
                 <a
                   href="tel:+923333187093"
-                  className="text-emerald-400 hover:text-emerald-300 underline cursor-pointer transition-colors duration-300"
+                  className="text-white hover:text-emerald-400 underline cursor-pointer transition-colors duration-300"
                 >
                   +92 333 3187093
                 </a>
@@ -128,7 +128,7 @@ const Contact = () => {
                 href="https://github.com/areebatahi"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-emerald-400 hover:text-emerald-300 text-3xl transition-colors duration-300 cursor-pointer"
+                className="text-white hover:text-emerald-400 text-3xl transition-colors duration-300 cursor-pointer"
               >
                 <FaGithub />
               </a>
@@ -136,13 +136,13 @@ const Contact = () => {
                 href="https://www.linkedin.com/in/areeba-tahir-arain-10a86936a/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-emerald-400 hover:text-emerald-300 text-3xl transition-colors duration-300 cursor-pointer"
+                className="text-white hover:text-emerald-400 text-3xl transition-colors duration-300 cursor-pointer"
               >
                 <FaLinkedin />
               </a>
               <a
                 href="tel:+923333187093"
-                className="text-emerald-400 hover:text-emerald-300 text-3xl transition-colors duration-300 cursor-pointer"
+                className="text-white hover:text-emerald-400 text-3xl transition-colors duration-300 cursor-pointer"
               >
                 <MdLocalPhone />
               </a>
