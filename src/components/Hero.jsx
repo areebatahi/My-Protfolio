@@ -42,7 +42,7 @@ const Hero = () => {
       id="home"
       className="px-8 md:px-16 pt-24 pb-24 bg-gradient-to-br from-zinc-900 to-zinc-800"
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <div className="max-w-7xl mx-auto md:px-12">
         <div className="flex flex-col items-center justify-center md:flex-row gap-12">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -72,14 +72,8 @@ const Hero = () => {
 
             <div className="flex flex-wrap justify-center md:justify-start gap-4">
               <a
-                href="#projects"
-                className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-zinc-900 border border-emerald-500 text-white font-semibold py-3 px-6 rounded-lg transition duration-300"
-              >
-                <LayoutGrid className="w-5 h-5" />
-                View Projects
-              </a>
-              <a
-                href="#resume"
+                href="../../public/pdf/CV.pdf  "
+                download="Resume.pdf"
                 className="inline-flex items-center gap-2 border border-emerald-500 text-emerald-500 hover:bg-emerald-500 hover:text-white font-semibold py-3 px-6 rounded-lg transition duration-300"
               >
                 <Download className="w-5 h-5" />
