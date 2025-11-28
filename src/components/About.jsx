@@ -50,9 +50,9 @@ const About = () => {
   return (
     <section
       id="about"
-      className="p-6 pt-24 pb-24 bg-gradient-to-br from-zinc-900 to-zinc-800 text-white overflow-hidden"
+      className="px-8 md:px-16 pt-24 pb-24 bg-gradient-to-br from-zinc-900 to-zinc-800 text-white overflow-hidden"
     > 
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto md:px-12">
         {/* ------------------ About Text ------------------ */}
         <h2 className="text-4xl font-bold text-center mb-16 text-emerald-400">
           About

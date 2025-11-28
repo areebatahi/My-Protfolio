@@ -38,7 +38,7 @@ const Hero = () => {
   }, [displayText, deleting]);
 
   return (
-    <section
+    <section 
       id="home"
       className="px-8 md:px-16 pt-24 pb-24 bg-gradient-to-br from-zinc-900 to-zinc-800"
     >

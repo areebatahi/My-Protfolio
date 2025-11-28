@@ -45,8 +45,8 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-zinc-900 to-zinc-800 flex items-center justify-center py-10 px-4">
-      <div className="max-w-6xl w-full grid md:grid-cols-2 gap-8">
+    <div className="px-8 md:px-16 pt-24 pb-24 min-h-screen bg-gradient-to-br from-zinc-900 to-zinc-800 flex items-center justify-center">
+      <div className="max-w-6xl mx-auto md:px-12 w-full grid md:grid-cols-2 gap-8">
         {/* Contact Form */}
         <div className="bg-zinc-950 border border-zinc-800 rounded-2xl shadow-xl p-8">
           <h2 className="text-2xl font-bold mb-6 text-emerald-400">

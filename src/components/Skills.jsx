@@ -39,15 +39,15 @@ const Skills = () => {
   return (
     <section
       id="skills"
-      className="py-24 px-6 bg-gradient-to-br from-zinc-900 to-zinc-800 text-white"
+      className="px-8 md:px-16 pt-24 pb-24 bg-gradient-to-br from-zinc-900 to-zinc-800 text-white"
     >
-      <div className="max-w-7xl mx-auto text-center">
+      <div className="max-w-7xl mx-auto text-center md:px-12">
         <h2 className="text-5xl font-bold mb-12 bg-clip-text text-emerald-400">
           My Skills
         </h2>
 
         {/* Filters */}
-        <div className="flex justify-center gap-4 mb-14 flex-wrap">
+        <div className="flex justify-center gap-3 mb-14 flex-wrap">
           {filters.map(category => (
             <button
               key={category}
