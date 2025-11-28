@@ -58,7 +58,7 @@ const projects = [
     title: "Task Management",
     description:
       "This is a full-featured task management app with user authentication, task creation, status tracking, and organized task categories for efficient workflow management.",
-    image: "/images/Task Manager.PNG",
+    image: ".././public/images/Task Manager.PNG",
     tech: [
       "React.js",
       "Tailwind CSS",
