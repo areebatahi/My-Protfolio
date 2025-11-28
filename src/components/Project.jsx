@@ -21,7 +21,7 @@ const projects = [
     title: "Elite Shop Framework",
     description:
       "This website features a sleek, modern design with intuitive navigation and a fully responsive layout, ideal for delivering polished and professional business presentations.",
-    image: "src/assets/images/websiteDesign.PNG",
+    image: "/images/websiteDesign.PNG",
     tech: [
       "Html5",
       "Css3",
@@ -40,7 +40,7 @@ const projects = [
     title: "Weather App",
     description:
       "A stylish React.js weather app with live API integration, dynamic backgrounds based on weather conditions, and an interactive, animated UI using Framer Motion and SweetAlert..",
-    image: "src/assets/images/Weather app.PNG",
+    image: "/images/Weather app.PNG",
     tech: [
       "React.js",
       "JavaScript (ES6+)",
@@ -58,7 +58,7 @@ const projects = [
     title: "Task Management",
     description:
       "This is a full-featured task management app with user authentication, task creation, status tracking, and organized task categories for efficient workflow management.",
-    image: "src/assets/images/Task Manager.PNG",
+    image: "/images/Task Manager.PNG",
     tech: [
       "React.js",
       "Tailwind CSS",
