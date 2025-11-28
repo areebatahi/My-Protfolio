@@ -33,7 +33,6 @@ const skillsData = [
 const filters = ["Frontend", "Backend", "Tools"];
 
 const Skills = () => {
-  const [selected, setSelected] = useState("Frontend");
   const filteredSkills = skillsData.filter(skill => skill.category === selected);
 
   return (
