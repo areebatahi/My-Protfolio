@@ -30,11 +30,11 @@ const skillsData = [
   { name: "Canva", level: 70, category: "Tools", icon: <SiCanva />, color: "text-cyan-500" },
 ];
 
-const filters = ["All", "Frontend", "Backend", "Tools"];
+const filters = ["Frontend", "Backend", "Tools"];
 
 const Skills = () => {
-  const [selected, setSelected] = useState("All");
-  const filteredSkills = selected === "All" ? skillsData : skillsData.filter(skill => skill.category === selected);
+  const [selected, setSelected] = useState("Frontend");
+  const filteredSkills = skillsData.filter(skill => skill.category === selected);
 
   return (
     <section
