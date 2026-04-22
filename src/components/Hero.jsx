@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { LayoutGrid, Download } from "lucide-react";
 
 const roles = [
-  "Web Developer",
-  "React Enthusiast",
-  "Node.js Developer",
-  "MongoDB Specialist",
-  "Express.js Expert",
+  "Ads & Social Media Specialist",
+  "Facebook & Instagram Ads Expert",
+  "Lead Generation Expert",
+  "Canva Ad Designer",
+  "Business Growth Strategist",
 ];
 
 const Hero = () => {
@@ -35,55 +34,61 @@ const Hero = () => {
     }
 
     return () => clearTimeout(timeout);
-  }, [displayText, deleting]);
+  }, [displayText, deleting, currentRoleIndex]);
 
   return (
-    <section 
+    <section
       id="home"
       className="px-8 md:px-16 pt-24 pb-24 bg-gradient-to-br from-zinc-900 to-zinc-800"
     >
       <div className="max-w-7xl mx-auto md:px-12">
         <div className="flex flex-col items-center justify-center md:flex-row gap-12">
+
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-white"
           >
+            {/* Heading */}
             <h1 className="text-4xl md:text-6xl font-bold mb-6 text-emerald-400 text-center md:text-left">
               Hi, <span className="text-white">I'm Areeba Tahir</span>
             </h1>
 
+            {/* Typing Roles */}
             <span className="font-semibold text-emerald-400">
               {displayText}
               <span className="blinking-cursor">|</span>
             </span>
 
+            {/* Description */}
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2, duration: 0.6 }}
               className="text-lg leading-8 text-gray-300 mb-6 text-center md:text-left"
             >
-              Using modern tools like React, Node.js, MongoDB, and Express, I
-              develop high-performance web applications that run smoothly and
-              quickly. <br />
+              I help businesses grow by running targeted Facebook and Instagram ads
+              that bring real customers and increase sales. Using simple strategies
+              and high-converting creatives, I focus on results that matter.
             </motion.p>
 
             <div className="flex flex-wrap justify-center md:justify-start gap-4">
               <a
-                href="../../public/pdf/CV.pdf  "
-                download="Resume.pdf"
+                href="https://wa.me/923333187093"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 border border-emerald-500 text-emerald-500 hover:bg-emerald-500 hover:text-white font-semibold py-3 px-6 rounded-lg transition duration-300"
               >
-                <Download className="w-5 h-5" />
-                Resume
+                Get More Customers >
               </a>
             </div>
           </motion.div>
+
         </div>
       </div>
 
+      {/* Cursor Animation */}
       <style>{`
         .blinking-cursor {
           animation: blink 1.2s steps(2, start) infinite;

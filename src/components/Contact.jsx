@@ -75,7 +75,7 @@ const Contact = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                placeholder="your.email@example.com"
+                placeholder="areebatahir.studio@gmail.com"
                 className="w-full px-4 py-2 border border-emerald-500 bg-zinc-900 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
               />
             </div>
@@ -115,7 +115,7 @@ const Contact = () => {
                   href="mailto:areebatahirarain7@gmail.com"
                   className="text-white hover:text-emerald-400 underline transition"
                 >
-                  areebatahirarain7@gmail.com
+                 areebatahir.studio@gmail.com
                 </a>
               </div>
             </div>
